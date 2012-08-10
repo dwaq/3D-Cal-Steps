@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.awt.*;
 import java.util.*;
 
-public class CalSteps extends JFrame {
+public class CalSteps extends JFrame implements ActionListener {
 	
 	// Set up row 1
 	JPanel row1 = new JPanel();
@@ -27,6 +27,7 @@ public class CalSteps extends JFrame {
 	JPanel row4 = new JPanel();
 	// Adds button to begin calculation
 	JButton calculateButton = new JButton("Calculate");
+	calculateButton.addActionListener(this);
 
 	// Set up row 5
 	JPanel row5 = new JPanel();
@@ -87,6 +88,21 @@ public class CalSteps extends JFrame {
 		setVisible(true);
 	}
 	
+	public void actionPerformed(ActionEvent event) {
+		String command = event.getActionCommand();
+		if (command.equals("Calculate")) {
+			calculate();
+		}
+	}
+
+	void calculate() {
+		float oldStepsValue = Float.parseFloat(field.oldSteps);
+		float definedLengthValue = Float.parseFloat(field.definedLength);
+		float measuredLengthValue = Float.parseFloat(field.measuredLength);
+		float newStepsValue = ((oldStepsValue * definedLengthValue) / measuredLengthValue);
+		field.newSteps.setText(newStepsValue);
+	}
+
 	private void setLookAndFeel() {
 		try {
 			UIManager.setLookAndFeel(
