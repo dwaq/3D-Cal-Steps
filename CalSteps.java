@@ -2,7 +2,7 @@
 // 3D-Cal-Steps
 //
 // By: Dillon Nichols
-// http://tinkeringetc.blogspot.com/
+// http://tinkeringetc.blogspot.com/2012/08/printrbot-calibration-prints.html
 //
 // Description: 
 // Java program used to easily calculate the the modified step-per-mm value for a 3D printer.
