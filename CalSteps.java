@@ -4,7 +4,7 @@
 // By: Dillon Nichols
 // http://tinkeringetc.blogspot.com/2012/08/printrbot-calibration-prints.html
 //
-// Description: 
+// Description:
 // Java program used to easily calculate the the modified step-per-mm value for a 3D printer.
 //
 // This work is licensed under a Creative Commons Attribution 3.0 Unported License.
@@ -16,13 +16,13 @@ import java.awt.*;
 import java.lang.String.*;
 
 public class CalSteps extends JFrame implements ActionListener {
-	
+
 	// Sets up field variables to use in calculate()
 	JTextField oldSteps = new JTextField(12);
 	JTextField definedLength = new JTextField(12);
 	JTextField measuredLength = new JTextField(12);
 	JTextField newSteps = new JTextField(12);
-						
+
 	public CalSteps() {
 		// Sets up defaults for UI
 		super("3D Printer Steps-per-mm Calculator");
@@ -32,7 +32,7 @@ public class CalSteps extends JFrame implements ActionListener {
 		// Sets up layout for entire app
 		FlowLayout flow = new FlowLayout();
 		setLayout(flow);
-		
+
 		// Sets up layout for row 1
 		FlowLayout layout1 = new FlowLayout(FlowLayout.CENTER, 10, 10);
 		JPanel row1 = new JPanel();
@@ -41,7 +41,7 @@ public class CalSteps extends JFrame implements ActionListener {
 		row1.add(oldStepsText);
 		row1.add(oldSteps);
 		add(row1);
-		
+
 		// Sets up layout for row 2
 		FlowLayout layout2 = new FlowLayout(FlowLayout.CENTER, 10, 10);
 		JPanel row2 = new JPanel();
@@ -61,7 +61,7 @@ public class CalSteps extends JFrame implements ActionListener {
 		add(row3);
 
 		// Sets up layout for row 4
-		FlowLayout layout4 = new FlowLayout(FlowLayout.CENTER, 30, 10);     
+		FlowLayout layout4 = new FlowLayout(FlowLayout.CENTER, 30, 10);
 		JPanel row4 = new JPanel();
 		// Adds button to clear all values
 		JButton clearButton = new JButton("Clear");
@@ -85,7 +85,7 @@ public class CalSteps extends JFrame implements ActionListener {
 		add(row5);
 
 		// Sets up layout for row 6
-		FlowLayout layout6 = new FlowLayout(FlowLayout.CENTER, 10, 10);     
+		FlowLayout layout6 = new FlowLayout(FlowLayout.CENTER, 10, 10);
 		JPanel row6 = new JPanel();
 		// Adds button to swap newSteps into oldSteps
 		JButton swapButton = new JButton("Swap");
@@ -93,10 +93,10 @@ public class CalSteps extends JFrame implements ActionListener {
 		row6.setLayout(layout6);
 		row6.add(swapButton);
 		add(row6);
-		
+
 		setVisible(true);
 	}
-	
+
 	public void actionPerformed(ActionEvent event) {
 		String command = event.getActionCommand();
 		if (command.equals("Calculate")) {
@@ -142,7 +142,7 @@ public class CalSteps extends JFrame implements ActionListener {
 			// ignore error
 		}
 	}
-	
+
 	public static void main(String[] arguments) {
 		CalSteps Cal = new CalSteps();
 	}
