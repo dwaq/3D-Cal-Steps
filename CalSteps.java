@@ -61,12 +61,16 @@ public class CalSteps extends JFrame implements ActionListener {
 		add(row3);
 
 		// Sets up layout for row 4
-		FlowLayout layout4 = new FlowLayout(FlowLayout.CENTER, 10, 10);     
+		FlowLayout layout4 = new FlowLayout(FlowLayout.CENTER, 30, 10);     
 		JPanel row4 = new JPanel();
+		// Adds button to clear all values
+		JButton clearButton = new JButton("Clear");
+		clearButton.addActionListener(this);
 		// Adds button to begin calculation
 		JButton calculateButton = new JButton("Calculate");
 		calculateButton.addActionListener(this);
 		row4.setLayout(layout4);
+		row4.add(clearButton);
 		row4.add(calculateButton);
 		add(row4);
 
@@ -88,6 +92,16 @@ public class CalSteps extends JFrame implements ActionListener {
 		if (command.equals("Calculate")) {
 			calculate();
 		}
+		if (command.equals("Clear")) {
+			clear();
+		}
+	}
+
+	void clear() {
+		oldSteps.setText("");
+		definedLength.setText("");
+		measuredLength.setText("");
+		newSteps.setText("");
 	}
 
 	void calculate() {
