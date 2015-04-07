@@ -83,6 +83,16 @@ public class CalSteps extends JFrame implements ActionListener {
 		row5.add(newSteps);
 		newSteps.setEditable(false);
 		add(row5);
+
+		// Sets up layout for row 6
+		FlowLayout layout6 = new FlowLayout(FlowLayout.CENTER, 10, 10);     
+		JPanel row6 = new JPanel();
+		// Adds button to swap newSteps into oldSteps
+		JButton swapButton = new JButton("Swap");
+		swapButton.addActionListener(this);
+		row6.setLayout(layout6);
+		row6.add(swapButton);
+		add(row6);
 		
 		setVisible(true);
 	}
@@ -94,6 +104,9 @@ public class CalSteps extends JFrame implements ActionListener {
 		}
 		if (command.equals("Clear")) {
 			clear();
+		}
+		if (command.equals("Swap")) {
+			swap();
 		}
 	}
 
@@ -112,6 +125,12 @@ public class CalSteps extends JFrame implements ActionListener {
 		String newStepsValueString;
 		newStepsValueString = String.valueOf(newStepsValue);
 		newSteps.setText(newStepsValueString);
+	}
+
+	void swap() {
+		oldSteps.setText(newSteps.getText());
+		measuredLength.setText("");
+		newSteps.setText("");
 	}
 
 	private void setLookAndFeel() {
